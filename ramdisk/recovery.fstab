@@ -1,5 +1,5 @@
 # mount point                fstype                device                    device2                     flags
-/efs		ext4	/dev/block/mmcblk0p15   flags=display="EFS";backup=1;wipeingui
+/efs		ext4	/dev/block/mmcblk0p15   flags=display="EFS";backup=1
 /boot		emmc	/dev/block/mmcblk0p5	flags=display="Boot";backup=1
 /recovery	emmc	/dev/block/mmcblk0p6    flags=display="recovery";backup=1
 /cache		ext4	/dev/block/mmcblk0p16	flags=display="Cache";backup=1;wipeingui;wipeduringfactoryreset
