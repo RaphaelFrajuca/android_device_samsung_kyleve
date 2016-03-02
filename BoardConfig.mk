@@ -1,7 +1,7 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/samsung/i9082/BoardConfigVendor.mk
+-include vendor/samsung/kyleve/BoardConfigVendor.mk
 
 TARGET_ARCH := arm
 TARGET_NO_BOOTLOADER := true
@@ -12,7 +12,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_SMP := true
 
-TARGET_BOOTLOADER_BOARD_NAME := capri
+TARGET_BOOTLOADER_BOARD_NAME := hawaii
 
 BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8 mem=832M@0xA2000000 androidboot.console=ttyS0 vc-cma-mem=0/176M@0xCB000000
 BOARD_KERNEL_BASE := 0xa2000000
@@ -37,7 +37,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 EXTENDED_FONT_FOOTPRINT := true
 
 # Kernel
-TARGET_KERNEL_CONFIG := cyanogenmod_i9082_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_kyleve_defconfig
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -45,8 +45,8 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i9082/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/samsung/i9082/libbt_vndcfg.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/kyleve/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/kyleve/bluetooth/libbt_vndcfg.txt
 
 # Connectivity - Wi-Fi
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -87,10 +87,10 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/samsung/i9082/ril/
+BOARD_RIL_CLASS := ../../../device/samsung/kyleve/ril/
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/i9082/fstab.capri_ss_baffin
+TARGET_RECOVERY_FSTAB := device/samsung/kyleve/fstab.capri_ss_baffin
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
 TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
 TARGET_RECOVERY_DENSITY := hdpi
@@ -99,17 +99,17 @@ TARGET_RECOVERY_DENSITY := hdpi
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.capri
 
 # CMHW
-BOARD_HARDWARE_CLASS := hardware/samsung/cmhw/ device/samsung/i9082/cmhw/
+BOARD_HARDWARE_CLASS := hardware/samsung/cmhw/ device/samsung/kyleve/cmhw/
 
 # GPS
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9082/include
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/kyleve/include
 
 # jemalloc causes a lot of random crash on free()
 MALLOC_IMPL := dlmalloc
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/i9082/sepolicy
+    device/samsung/kyleve/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     file_contexts \

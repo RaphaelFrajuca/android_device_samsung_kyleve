@@ -5,26 +5,26 @@ $(call inherit-product-if-exists, vendor/samsung/kyleve/kyleve-vendor.mk)
 # FIXME: This allows only hdpi resources to be included, saving space.
 #        However, some bug caused holo apps' menu, checkboxes and
 #        other widgets to be transparent.
-# PRODUCT_AAPT_CONFIG := normal hdpi
-# PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 DEVICE_PACKAGE_OVERLAYS += device/samsung/kyleve/overlay
 
 # Init files
 PRODUCT_COPY_FILES += \
-	device/samsung/kyleve/init.hawaii_ss_kyleve.rc:root/init.hawaii_ss_kyleve.rc \
-	device/samsung/kyleve/init.bcm281x5.usb.rc:root/init.bcm281x5.usb.rc \
-	device/samsung/kyleve/init.log.rc:root/init.log.rc \
-	device/samsung/kyleve/init.recovery.hawaii_ss_kyleve.rc:root/init.recovery.hawaii_ss_kyleve.rc \
-	device/samsung/kyleve/ueventd.hawaii_ss_kyleve.rc:root/ueventd.hawaii_ss_kyleve.rc \
-	device/samsung/kyleve/fstab.hawaii_ss_kyleve:root/fstab.hawaii_ss_kyleve \
+	device/samsung/kyleve/rootdir/init.hawaii_ss_kyleve.rc:root/init.hawaii_ss_kyleve.rc \
+	device/samsung/kyleve/rootdir/init.bcm281x5.usb.rc:root/init.bcm281x5.usb.rc \
+	device/samsung/kyleve/rootdir/init.log.rc:root/init.log.rc \
+	device/samsung/kyleve/rootdir/init.recovery.hawaii_ss_kyleve.rc:root/init.recovery.hawaii_ss_kyleve.rc \
+	device/samsung/kyleve/rootdir/ueventd.hawaii_ss_kyleve.rc:root/ueventd.hawaii_ss_kyleve.rc \
+	device/samsung/kyleve/rootdir/fstab.hawaii_ss_kyleve:root/fstab.hawaii_ss_kyleve \
 
 PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-	device/samsung/kyleve/media_codecs.xml:system/etc/media_codecs.xml \
-	device/samsung/kyleve/audio_policy.conf:system/etc/audio_policy.conf \
+	device/samsung/kyleve/configs/media_codecs.xml:system/etc/media_codecs.xml \
+	device/samsung/kyleve/configs/audio_policy.conf:system/etc/audio_policy.conf \
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
