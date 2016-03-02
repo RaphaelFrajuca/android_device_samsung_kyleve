@@ -14,7 +14,7 @@ TARGET_CPU_SMP := true
 
 TARGET_BOOTLOADER_BOARD_NAME := hawaii
 
-BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8 mem=832M@0xA2000000 androidboot.console=ttyS0 vc-cma-mem=0/176M@0xCB000000
+BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x82000000
 BOARD_KERNEL_PAGESIZE := 4096
 
@@ -88,7 +88,7 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_RIL_CLASS := ../../../device/samsung/kyleve/ril/
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/kyleve/fstab.hawaii_ss_kyleve
+TARGET_RECOVERY_FSTAB := device/samsung/kyleve/rootdir/fstab.hawaii_ss_kyleve
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
 TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
 TARGET_RECOVERY_DENSITY := hdpi
