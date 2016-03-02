@@ -28,12 +28,12 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
-	device/samsung/kyleve/bcm_headset.kl:system/usr/keylayout/bcm_headset.kl \
-	device/samsung/kyleve/bcm_keypad_v2.kl:system/usr/keylayout/bcm_keypad_v2.kl \
-	device/samsung/kyleve/cyttsp4_btn.kl:system/usr/keylayout/cyttsp4_btn.kl \
-	device/samsung/kyleve/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-	device/samsung/kyleve/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl \
-	device/samsung/kyleve/sii9234_rcp.kl:system/usr/keylayout/sii9234_rcp.kl
+	device/samsung/kyleve/keylayout/bcm_headset.kl:system/usr/keylayout/bcm_headset.kl \
+	device/samsung/kyleve/keylayout/bcm_keypad_v2.kl:system/usr/keylayout/bcm_keypad_v2.kl \
+	device/samsung/kyleve/keylayout/cyttsp4_btn.kl:system/usr/keylayout/cyttsp4_btn.kl \
+	device/samsung/kyleve/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+	device/samsung/kyleve/keylayout/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl \
+	device/samsung/kyleve/keylayout/sii9234_rcp.kl:system/usr/keylayout/sii9234_rcp.kl
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
