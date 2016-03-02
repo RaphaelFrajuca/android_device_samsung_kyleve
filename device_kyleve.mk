@@ -5,7 +5,8 @@ $(call inherit-product-if-exists, vendor/samsung/kyleve/kyleve-common-vendor.mk)
 # FIXME: This allows only hdpi resources to be included, saving space.
 #        However, some bug caused holo apps' menu, checkboxes and
 #        other widgets to be transparent.
-PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_LOCALES += hdpi
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 DEVICE_PACKAGE_OVERLAYS += device/samsung/kyleve/overlay
@@ -30,16 +31,16 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
-	device/samsung/kyleve/keylayout/bcm_headset.kl:system/usr/keylayout/bcm_headset.kl \
-	device/samsung/kyleve/keylayout/bcm_keypad_v2.kl:system/usr/keylayout/bcm_keypad_v2.kl \
-	device/samsung/kyleve/keylayout/cyttsp4_btn.kl:system/usr/keylayout/cyttsp4_btn.kl \
-	device/samsung/kyleve/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-	device/samsung/kyleve/keylayout/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl \
-	device/samsung/kyleve/keylayout/sii9234_rcp.kl:system/usr/keylayout/sii9234_rcp.kl
+	device/samsung/kyleve/keylayouts/bcm_headset.kl:system/usr/keylayout/bcm_headset.kl \
+	device/samsung/kyleve/keylayouts/bcm_keypad_v2.kl:system/usr/keylayout/bcm_keypad_v2.kl \
+	device/samsung/kyleve/keylayouts/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+	device/samsung/kyleve/keylayouts/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-	setup_fs
+	make_ext4fs \
+        e2fsck \
+        setup_fs
 
 # Usb accessory
 PRODUCT_PACKAGES += \
@@ -72,8 +73,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
-	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-	frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
 	frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
 	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
@@ -99,14 +98,14 @@ PRODUCT_PACKAGES += \
 # Note that the only such settings should be the ones that are too low-level to
 # be reachable from resources or other mechanisms.
 PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
-    mobiledata.interfaces=rmnet0 \
-    ro.telephony.ril_class=SamsungBCMRIL \
-    ro.zygote.disable_gl_preload=true \
-    ro.cm.hardware.cabc=/sys/class/mdnie/mdnie/cabc \
-    persist.radio.multisim.config=dsds \
-    ro.telephony.call_ring.multiple=0 \
-    ro.telephony.call_ring=0 \
+	wifi.interface=wlan0 \
+	mobiledata.interfaces=rmnet0 \
+	ro.telephony.ril_class=SamsungBCMRIL \
+	persist.radio.multisim.config=dsds \
+	cm.updater.uri=http://updates.cm-ota.pp.ua \
+	ro.telephony.call_ring.multiple=0 \
+	camera2.portability.force_api=1 \
+	ro.telephony.call_ring=0
 
 # enable Google-specific location features,
 # like NetworkLocationProvider and LocationCollector

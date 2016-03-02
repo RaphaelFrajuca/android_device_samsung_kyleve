@@ -14,20 +14,11 @@ TARGET_CPU_SMP := true
 
 TARGET_BOOTLOADER_BOARD_NAME := hawaii
 
-BOARD_KERNEL_CMDLINE :=
-BOARD_KERNEL_BASE := 0x82000000
-BOARD_KERNEL_PAGESIZE := 4096
-
+# PARTITION SIZE
 TARGET_USERIMAGES_USE_EXT4 := true
-
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8388608
-
-# This is actually 1610612736, but reducing to 1049 MB to support users using repartition.
-# Feel free to increase when needed
-# See: http://forum.xda-developers.com/showpost.php?p=55293011&postcount=1
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 907096000
-
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2189426688
 BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -35,10 +26,11 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 
 # Kernel
 TARGET_KERNEL_CONFIG := bcm21664_hawaii_ss_kyleve_rev00_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
 TARGET_KERNEL_SOURCE := kernel/samsung/kyleve
-BOARD_HAS_NO_SELECT_BUTTON := true
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
 BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_KERNEL_BASE := 0x82000000
+BOARD_KERNEL_PAGESIZE := 4096
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -53,7 +45,7 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER        := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE           := bcmdhd
-BOARD_WLAN_DEVICE_REV       := bcm4334
+BOARD_WLAN_DEVICE_REV       := bcm4330_b1
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/wifi/bcmdhd_apsta.bin"
@@ -72,6 +64,7 @@ BOARD_USES_SKTEXTBOX := true
 # Hardware rendering
 USE_OPENGL_RENDERER := true
 BOARD_USE_MHEAP_SCREENSHOT := true
+BOARD_EGL_CFG := device/samsung/kyleve/configs/egl.cfg
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS -DCAPRI_HWC -DREFBASE_JB_MR1_COMPAT_SYMBOLS
@@ -90,8 +83,13 @@ BOARD_RIL_CLASS := ../../../device/samsung/kyleve/ril/
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/kyleve/rootdir/fstab.hawaii_ss_kyleve
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
-TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
 TARGET_RECOVERY_DENSITY := hdpi
+
+# opengl
+BOARD_USE_BGRA_8888 := true
+
+# Audio
+BOARD_USES_ALSA_AUDIO := true
 
 # healthd
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.kyleve
