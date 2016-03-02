@@ -12,12 +12,13 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/kyleve/overlay
 
 # Init files
 PRODUCT_COPY_FILES += \
-	device/samsung/kyleve/rootdir/init.hawaii_ss_kyleve.rc:root/init.hawaii_ss_kyleve.rc \
-	device/samsung/kyleve/rootdir/init.bcm281x5.usb.rc:root/init.bcm281x5.usb.rc \
-	device/samsung/kyleve/rootdir/init.log.rc:root/init.log.rc \
-	device/samsung/kyleve/rootdir/init.recovery.hawaii_ss_kyleve.rc:root/init.recovery.hawaii_ss_kyleve.rc \
-	device/samsung/kyleve/rootdir/ueventd.hawaii_ss_kyleve.rc:root/ueventd.hawaii_ss_kyleve.rc \
-	device/samsung/kyleve/rootdir/fstab.hawaii_ss_kyleve:root/fstab.hawaii_ss_kyleve \
+	device/samsung/kyleve/ramdisk/fstab.hawaii_ss_kyleve:root/fstab.hawaii_ss_kyleve \
+	device/samsung/kyleve/ramdisk/init.rc:root/init.rc \
+	device/samsung/kyleve/ramdisk/init.hawaii_ss_kyleve.rc:root/init.hawaii_ss_kyleve.rc \
+	device/samsung/kyleve/ramdisk/init.bcm2166x.usb.rc:root/init.bcm2166x.usb.rc \
+	device/samsung/kyleve/ramdisk/init.log.rc:root/init.log.rc \
+	device/samsung/kyleve/ramdisk/charger:root/charger \
+	device/samsung/kyleve/ramdisk/ueventd.hawaii_ss_kyleve.rc:root/ueventd.hawaii_ss_kyleve.rc
 
 PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -25,6 +26,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
 	device/samsung/kyleve/configs/media_codecs.xml:system/etc/media_codecs.xml \
 	device/samsung/kyleve/configs/audio_policy.conf:system/etc/audio_policy.conf \
+	device/samsung/kyleve/configs/media_profiles.xml:system/etc/media_profiles.xml \
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
