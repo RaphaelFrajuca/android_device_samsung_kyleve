@@ -20,19 +20,19 @@
 #include <sys/types.h>
 #include <AudioPolicyManager.h>
 
-#ifndef ANDROID_CAPRI_AUDIO_POLICY_MANAGER_H
-#define ANDROID_CAPRI_AUDIO_POLICY_MANAGER_H
+#ifndef ANDROID_Kyleve_AUDIO_POLICY_MANAGER_H
+#define ANDROID_Kyleve_AUDIO_POLICY_MANAGER_H
 
 namespace android {
 
-class CapriAudioPolicyManager: public AudioPolicyManager
+class KyleveAudioPolicyManager: public AudioPolicyManager
 {
 public:
-    CapriAudioPolicyManager(AudioPolicyClientInterface *clientInterface);
-    virtual ~CapriAudioPolicyManager() {}
+    KyleveAudioPolicyManager(AudioPolicyClientInterface *clientInterface);
+    virtual ~KyleveAudioPolicyManager() {}
 
     virtual void setPhoneState(audio_mode_t state);
 };
 
 }  // namespace android
-#endif  // ANDROID_CAPRI_AUDIO_POLICY_MANAGER_H
+#endif  // ANDROID_Kyleve_AUDIO_POLICY_MANAGER_H

@@ -15,16 +15,16 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "CapriAudioPolicyManager"
+#define LOG_TAG "KyleveAudioPolicyManager"
 //#define LOG_NDEBUG 0
 
-#include "CapriAudioPolicyManager.h"
+#include "KyleveAudioPolicyManager.h"
 
 namespace android {
 
 extern "C" AudioPolicyInterface* createAudioPolicyManager(AudioPolicyClientInterface *clientInterface)
 {
-    return new CapriAudioPolicyManager(clientInterface);
+    return new KyleveAudioPolicyManager(clientInterface);
 }
 
 extern "C" void destroyAudioPolicyManager(AudioPolicyInterface *interface)
@@ -32,12 +32,12 @@ extern "C" void destroyAudioPolicyManager(AudioPolicyInterface *interface)
     delete interface;
 }
 
-CapriAudioPolicyManager::CapriAudioPolicyManager(AudioPolicyClientInterface *clientInterface)
+KyleveAudioPolicyManager::KyleveAudioPolicyManager(AudioPolicyClientInterface *clientInterface)
     : AudioPolicyManager(clientInterface)
 {
 }
 
-void CapriAudioPolicyManager::setPhoneState(audio_mode_t state)
+void KyleveAudioPolicyManager::setPhoneState(audio_mode_t state)
 {
     if (!isStateInCall(mPhoneState) && isStateInCall(state)) {
 		// On I9082, we need to reset mLastVoiceVolume every call start to force the
