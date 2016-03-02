@@ -33,12 +33,10 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 262144
 
-# Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
-
 # Kernel
 TARGET_KERNEL_CONFIG := bcm21664_hawaii_ss_kylevess_rev00_defconfig
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
+TARGET_KERNEL_SOURCE := kernel/samsung/kyleve
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 
@@ -90,13 +88,13 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_RIL_CLASS := ../../../device/samsung/kyleve/ril/
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/kyleve/fstab.capri_ss_baffin
+TARGET_RECOVERY_FSTAB := device/samsung/kyleve/fstab.hawaii_ss_kyleve
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
 TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
 TARGET_RECOVERY_DENSITY := hdpi
 
 # healthd
-BOARD_HAL_STATIC_LIBRARIES := libhealthd.capri
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.kyleve
 
 # CMHW
 BOARD_HARDWARE_CLASS := hardware/samsung/cmhw/ device/samsung/kyleve/cmhw/
