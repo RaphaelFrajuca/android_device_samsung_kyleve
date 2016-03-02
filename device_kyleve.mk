@@ -1,6 +1,6 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-$(call inherit-product-if-exists, vendor/samsung/kyleve/kyleve-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/kyleve/kyleve-common-vendor.mk)
 
 # FIXME: This allows only hdpi resources to be included, saving space.
 #        However, some bug caused holo apps' menu, checkboxes and
